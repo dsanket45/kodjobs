@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Dashboard - KodJobs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Welcome to KodJobs</h1>
+            <div class="user-info">
+                <span>Welcome, <span id="userName"></span></span>
+                <button id="logoutBtn" class="btn-secondary">Logout</button>
+            </div>
+        </header>
+        <main>
+            <div class="jobs-container">
+                <div class="search-filters">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search jobs...">
+                        <button id="searchBtn" class="btn-primary">Search</button>
+                    </div>
+                    <div class="filters">
+                        <select id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="python">Python</option>
+                            <option value="java">Java</option>
+                            <option value="web">Web Development</option>
+                        </select>
+                        <select id="locationFilter">
+                            <option value="">All Locations</option>
+                            <option value="remote">Remote</option>
+                            <option value="onsite">Onsite</option>
+                            <option value="hybrid">Hybrid</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="jobsContainer" class="jobs-grid">
+                    <!-- Jobs will be dynamically loaded here -->
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/jobdashboard.js"></script>
+</body>
+</html> 
