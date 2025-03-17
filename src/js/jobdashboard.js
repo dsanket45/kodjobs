@@ -1,3 +1,5 @@
+import config from './config.js';
+
 document.addEventListener("DOMContentLoaded", () => {
     // Check if user is logged in
     const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
@@ -39,7 +41,7 @@ function fetchJobs() {
     jobsContainer.innerHTML = '<div class="loading">Loading jobs...</div>';
 
     // Fetch jobs from API
-    fetch("https://api.sampleapis.com/codingresources/codingResources")
+    fetch(`${config.apiUrl}/codingresources/codingResources`)
         .then((response) => response.json())
         .then((data) => {
             // Transform the coding resources into job listings for demo purposes

@@ -7,8 +7,15 @@ const path = require('path');
 const app = express();
 const PORT = 3001;
 
+// CORS configuration
+const corsOptions = {
+    origin: ['http://localhost:3001', 'https://dsanket45.github.io', 'https://kodjobs.vercel.app'],
+    methods: ['GET', 'POST'],
+    credentials: true
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(express.static('src'));
 

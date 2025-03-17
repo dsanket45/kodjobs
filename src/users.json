@@ -15,6 +15,38 @@
             "password": "12345",
             "dob": "2014-01-17",
             "age": 11
+        },
+        {
+            "id": 3,
+            "name": "ravi",
+            "email": "ravi@gmail.com",
+            "password": "12345",
+            "dob": "2014-01-15",
+            "age": 11
+        },
+        {
+            "id": 4,
+            "name": "ramu",
+            "email": "ramuu@gmail.com",
+            "password": "12345",
+            "dob": "2019-06-04",
+            "age": 5
+        },
+        {
+            "id": 5,
+            "name": "rakesh",
+            "email": "rrr@gmaiul.com",
+            "password": "12345",
+            "dob": "2000-01-21",
+            "age": 25
+        },
+        {
+            "id": 6,
+            "name": "kod",
+            "email": "kod@gmail.com",
+            "password": "12345",
+            "dob": "2009-02-17",
+            "age": 16
         }
     ]
 }
