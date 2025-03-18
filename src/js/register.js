@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('registerForm');
+    const API_URL = window.location.hostname === 'localhost' 
+        ? 'http://localhost:3001/api/register'
+        : 'https://kodjobs.vercel.app/api/register';
 
     registerForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -28,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             // Save to server
-            const response = await fetch('/api/register', {
+            const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
