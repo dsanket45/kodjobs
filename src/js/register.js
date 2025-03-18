@@ -19,18 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            // Get existing users from localStorage
-            const users = JSON.parse(localStorage.getItem('users') || '[]');
-
-            // Check if email already exists
-            if (users.some(user => user.email === email)) {
-                alert('Email already registered');
-                return;
-            }
-
-            // Create new user
             const newUser = {
-                id: users.length + 1,
                 name,
                 email,
                 password,
@@ -38,18 +27,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 age
             };
 
-            // Add user to array
-            users.push(newUser);
+            // Save to server
+            const response = await fetch('/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newUser)
+            });
 
-            // Save to localStorage
+            if (!response.ok) {
+                const data = await response.json();
+                throw new Error(data.error || 'Registration failed');
+            }
+
+            // Save to localStorage for local functionality
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            newUser.id = users.length + 1;
+            users.push(newUser);
             localStorage.setItem('users', JSON.stringify(users));
+            localStorage.setItem('currentUser', JSON.stringify(newUser));
 
             // Show success message
             alert('Registration successful! Please login.');
             window.location.href = 'login.html';
         } catch (error) {
             console.error('Registration error:', error);
-            alert('Registration failed. Please try again.');
+            alert(error.message || 'Registration failed. Please try again.');
         }
     });
 });
